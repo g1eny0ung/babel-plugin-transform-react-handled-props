@@ -6,10 +6,42 @@ Generates handledProps from defaultProps and propTypes during the build :sparkle
 [![Gemnasium](https://img.shields.io/david/layershifter/babel-plugin-transform-react-handled-props.svg?style=flat)](https://david-dm.org/layershifter/babel-plugin-transform-react-handled-props)
 [![npm](https://img.shields.io/npm/v/babel-plugin-transform-react-handled-props.svg?style=flat)](https://www.npmjs.com/package/babel-plugin-transform-react-handled-props)
 
+## This Fork
+
+I forked this repo for my own purpose and added some features as below:
+
+- `commonProps` option
+
+  This option will append common props in `handledProps`.
+
+  ```json
+  {
+    "plugins": ["@g1eny0ung/transform-react-handled-props", { "commonProps": ["as", "className"] }]
+  }
+  ```
+
+  **In**
+
+  ```js
+  const Baz = (props) => (
+    <div {...props} />
+  )
+  ```
+
+  **Out**
+
+  ```js
+  const Baz = (props) => (
+    <div {...props} />
+  )
+
+  Baz.handledProps = ['as', 'className'];
+  ```
+
 ## Installation
 
 ```sh
-$ yarn add --dev babel-plugin-transform-react-handled-props
+$ yarn add --dev @g1eny0ung/babel-plugin-transform-react-handled-props
 ```
 
 *This plugin is for Babel 7. If you need to support Babel 6 use the  [babel6](https://github.com/layershifter/babel-plugin-transform-react-handled-props/tree/babel6) branch.*

@@ -25,6 +25,8 @@ const fixtureAssert = (fixtureDir, options = {}) =>
 describe('fixtures', () => {
   fixtureAssert('attr-string')
 
+  fixtureAssert('common', { commonProps: ['as', 'className'] })
+
   fixtureAssert('forward-ref-function')
   fixtureAssert('forward-ref-inline')
 

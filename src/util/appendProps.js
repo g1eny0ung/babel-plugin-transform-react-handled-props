@@ -36,11 +36,11 @@ const insertAfterPath = ({ identifier, path, props }) => {
   findTarget(path).insertAfter(createFunctionProperty(identifier, props))
 }
 
-const insertEntries = (entries, { ignoredProps = [] }) => {
+const insertEntries = (entries, { commonProps = [], ignoredProps = [] }) => {
   _.forEach(
     _.map(entries, ({ props, ...rest }) => ({
       ...rest,
-      props: _.without(props, ...ignoredProps),
+      props: [...commonProps, ..._.without(props, ...ignoredProps)],
     })),
     insertAfterPath,
   )
